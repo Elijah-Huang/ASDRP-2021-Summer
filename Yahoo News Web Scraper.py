@@ -240,12 +240,13 @@ def scroll_infinite(y):
 # main code
 #########################################################################################
 
+directory = r'C:\Users\elija\Desktop\CODING\ASDRP\ASDRP-2021-Summer'
 headline_data = pd.DataFrame(columns = ['Yahoo News Headline', 'Link to Headline', 'Publication', 'MB/FC Slant',
                                         'Rank Number', 'Date Recorded', 'Within 24 Hours?'])
 
 # index_col = 0 so it uses the first column as the index (otherwise auto appends 0...n-1)
 # keep_default_na = False so that N/A is not parsed and read as a numpy.nan
-bias_data_mbfc = pd.read_csv(r'C:\Users\elija\Desktop\CODING\ASDRP\2021 Summer\Bias\MediaBiasFactCheck.csv',index_col=0,keep_default_na=False)
+bias_data_mbfc = pd.read_csv(directory + r'\Bias\MediaBiasFactCheck.csv',index_col=0,keep_default_na=False)
 
 
 # create Chrome webdriver instance
@@ -338,11 +339,11 @@ print("closed browser")
 print('\n\n')
 
 # writing headline data to a csv file
-headline_data.to_csv(r'C:\Users\elija\Desktop\CODING\ASDRP\2021 Summer\Yahoo News Headline Data\Yahoo News Headline Data ' + today + '.csv')
+headline_data.to_csv(directory + r'\Yahoo News Headline Data\Yahoo News Headline Data ' + today + '.csv')
 print("saved headline data to csv")
 
 # writing bias data from mbfc to a csv file
-bias_data_mbfc.to_csv(r'C:\Users\elija\Desktop\CODING\ASDRP\2021 Summer\Bias\MediaBiasFactCheck.csv')
+bias_data_mbfc.to_csv(directory + r'\Bias\MediaBiasFactCheck.csv')
 print("saved bias data to csv")
 #########################################################################################
 
